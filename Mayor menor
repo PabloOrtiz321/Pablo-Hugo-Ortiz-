@@ -1,0 +1,39 @@
+#include <iostream>
+#include "stdafx.h"
+#include "conio.h"
+using namespace std;
+
+int main()
+{
+    int mayor, menor, numero1, numero2, numero3, numero4, numero5;
+cout<<"ingresa numero 1: ";
+cin>>numero1;
+cout<<"ingresa numero 2: ";
+cin>>numero2;
+cout<<"ingresa numero 3 :";
+cin>>numero3;
+cou<<"ingresa numero 4 :.";
+cin>>numero4;
+cout<<"ingresa numero 5 : ";
+cin>>numero5;
+mayor=numero1;//encontrar para tener el mayor y el menor 
+menor=numero1;
+if (mayor<numero2)
+mayor=numero2;
+if (menor>numero2)
+menor=numero2;
+if (mayor ‹numero3)
+mayor=numero3;
+if (menor>numero3)
+menor=numero3;
+if (mayor ‹numero4)
+mayor=numero4;
+if (menor>numero4)
+menor=numero4;
+if (mayor<numero5)
+mayor=numero5;
+cout<<"el amyor es "<<mayor<<endl;
+cout<<"el menor es "<<menor<<endl;
+getch();
+
+}
