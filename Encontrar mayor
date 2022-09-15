@@ -1,0 +1,20 @@
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+using namespace std; 
+
+void main ()
+{ 
+	float mayor, numero; 
+	int i; 
+	mayor=-999;
+	for (i=0; i<10; i++)
+	{
+		cout<<"Ingrese numero: "; 
+		cin>>numero;
+		if (numero>mayor)
+			mayor=numero;
+	}
+	cout<<"El mayor valor es: ";
+	getch();
+} 
