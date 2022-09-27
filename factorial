@@ -15,6 +15,6 @@ void main ()
 		}
 
 		cout<<"El factorial es: "<<factorial<<endl;
-		system ("pause");
+		
 		
 			return 0; 
