@@ -1,0 +1,40 @@
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+
+using namespace std;
+
+bool primo(int num)
+int main() {
+
+   int n, i=1, k=2;
+  
+   bool band; 
+   cout<<"Ingrese la cantidad de primos a generar: ";
+   cin>>n;
+   while (i<=n){
+	   band=true; 
+	   for (int j=2; j<k; j++)
+		   if (k % j==0){
+			   band=false; 
+			   break;
+		   }
+	   if (band==true)
+		   {
+	   cout<< k <<",";
+	   i++;
+		   }
+	   k++;
+   }
+  getch();
+}
+bool primo(int num)
+{
+	 bool band=true; 
+	   for (int j=2; j<k; j++)
+		   if (k % j==0){
+			   band=false; 
+			   break;
+		   }
+		   return band; 
+}
