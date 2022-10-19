@@ -1,0 +1,38 @@
+#include <iostream>
+#include"conio.h"
+
+using namespace std;
+
+float promedio(double a[], int tam);
+
+void main()
+{
+	double arreglo[100];
+	int tamanio;
+	do
+	{
+		cout << "Ingrese el tamaño: "; 
+		cin >> tamanio;
+	} while ((tamanio > 100) || (tamanio <= 0));
+	{
+		for (int i = 0; i < tamanio; i++)
+		{
+			do
+			{
+				cout << "Ingrese el valor: ";
+				cin >> arreglo[i];
+				if ((arreglo[i] > 100) || (arreglo[i] <= 0))
+					cout << "error"<<endl;
+			} while ((arreglo[i] > 100) || (arreglo[i] <= 0));
+		}
+	}
+	cout << "El promedio es: " << promedio(arreglo, tamanio);
+}
+float promedio(double a[], int tam)
+{
+	double prom=0;
+	for (int i = 0; i < tam; i++)
+		prom = prom + a[i];
+	prom = prom / tam;
+	return prom;
+}
