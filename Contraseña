@@ -1,0 +1,25 @@
+#include <iostream>
+#include "conio.h"
+#include <string>
+
+using namespace std;
+
+int main()
+{
+    int contrasena;
+
+    
+    string var1,nombre;
+    const string var2="crespo";
+    cout<<"Ingrese la contraseña: ";
+    getline(cin, nombre);
+    
+    
+    if (nombre.compare(var2)==0)
+        cout<<"Los datos coinciden";
+    else 
+    cout<<"La contraseña es diferente  "<<nombre<<":1"<<endl;
+    
+    getch();
+    return 0;
+}
