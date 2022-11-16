@@ -1,0 +1,53 @@
+#include <iostream>
+
+
+using namespace std;
+
+void CargarVector(int Vec[], int tam);
+void MostrarVector(int Vec[], int tam);
+
+int main()
+{
+    int op=0, a=0;
+    int vecA[100];
+    
+    cout<<"Ingrese el tamaño del vector ";
+    cin>>a;
+    
+    do{
+        cout<<"*** Menu para Arreglos ****"<<endl;
+        cout<<"1.- Llenar el vector"<<endl;
+        cout<<"2.- Mostrar el vector"<<endl;
+        cout<<"3.- Salir"<<endl;
+        cout<<"Elije una opcion ";
+        cin>>op;
+        switch(op){
+        case 1:
+            CargarVector(vecA,a);
+            //cout<<"La suma es: "<< c <<endl;
+            break;
+        case 2:
+            MostrarVector(vecA,a);
+            //cout<<"La resta es: "<< c <<endl;
+            break;
+   
+        }
+    }while(op>=1 && op<=2);
+
+    return 0;
+}
+
+void CargarVector(int vec[],int tam ){
+    
+    for(int i=0;i<tam;i++){
+        cout<<"Ingrese el valor de la posicion [" <<i<<"] ";
+        cin>>vec[i];
+    }
+}
+
+void MostrarVector(int vec[],int tam ){
+    
+    for(int i=0;i<tam;i++){
+        cout<<"Vector ["<<i<<"] "<< vec[i]<<endl;
+    }
+}
