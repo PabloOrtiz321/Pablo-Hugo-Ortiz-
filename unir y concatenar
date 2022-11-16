@@ -1,0 +1,135 @@
+#include <iostream>
+#include <string>
+
+#define MAX 10
+
+using namespace std;
+
+// prototipos
+
+void cargars(string A[], int tam); // Pide los datos
+void mostrars(string A[], float B[], int tam); // Muestra los datos
+void burbujas(string A[],float B[], int tam); // Clasifica los datos
+void unirs(string A[],int n, string B[], int m, string C[], int z); //clasifica
+
+void cargar(float A[], int tam); // Pide los datos
+void mostrar(float A[], int tam); // Muestra los datos
+float promedio(float A[], int tam); //clasifica
+
+int main()
+{
+    string clientes[MAX];
+    float monto[MAX],prom;
+    int n;
+    do {
+        cout<<"ingrese el numero de clientes: ";
+        cin>>n;
+    } while ((n>MAX) || (n<=0));
+    cargars(clientes,n);
+    cargar(monto,n);
+    prom=promedio(monto,n);
+    cout <<"El promedio de venta de mis clientes es: "<<prom;
+    // Presentar una lista con los clientes que compran mas del promedio
+    cout<<endl<<"Mis clientes VIP que compran mas del promedio son: "<<endl;
+    for (int i=0;i<n;i++)
+        if (monto[i]>prom)
+            cout <<"Cliente: "<<clientes[i]<<endl;
+    // Presentar la lista clasificada de clientes y sus montos
+    burbujas(clientes,monto,n);
+    mostrars(clientes,monto,n);
+    return 0;
+}
+
+void cargars(string A[], int tam)
+{
+    cin.ignore(); // Limpia de caracteres no validos
+    for (int i=0;i<tam;i++)
+    {
+        cout<<"Cliente ["<<i<<"]: ";
+        getline(cin,A[i]);
+    }
+}
+
+void mostrars(string A[],float B[], int tam)
+{
+    cout<<"Cliente                  Monto";
+    cout<<endl;
+   for (int i=0;i<tam;i++)
+    {
+        cout<<"Cliente ["<<i<<"]: "<<A[i]<<"     "<<B[i]<<endl;
+    }
+}
+
+void burbujas(string A[], float B[],int tam) // Clasifica los datos
+{
+    string aux;
+    float aux2;
+    for (int i=0; i<tam-1;i++)
+        for (int j=i+1;j<tam;j++)
+            if (A[i]>A[j])
+            {
+                aux=A[j];
+                A[j]=A[i];
+                A[i]=aux;
+                aux2=B[j];
+                B[j]=B[i];
+                B[i]=aux2;
+            }
+}
+/*
+//Concatenar
+void unir(string A[],int n, string B[], int m, string C[], int z)
+{
+    for (int i=0;i<n;i++)
+        C[i]=A[i];
+    for (int i=0;i<m;i++)
+        C[i+n]=B[i];
+}
+*/
+
+//Mezclar
+void unirs(string A[],int n, string B[], int m, string C[], int z)
+{
+    int pa=0, pb=0, i=0;
+    while ((pa<n) && (pb<m))  // Estos es mientras tenga datos en los dos vectores
+    {
+        if (A[pa]<B[pb])
+        {
+            C[i]=A[pa];
+            i++;
+            pa++;
+        }
+        else
+        {
+            C[i]=B[pb];
+            i++;
+            pb++;
+        }
+    }
+    for (int j=pa;j<n;j++)
+    {
+        C[i]=A[j];
+        i++;
+    }
+    for (int j=pb;j<m;j++)
+    {
+        C[i]=B[j];
+        i++;
+    }
+}
+
+void cargar(float A[], int tam)
+{
+    for (int i=0;i<tam;i++)
+    {
+        cout<<"Monto ["<<i<<"]: ";
+        cin>>A[i];
+    }
+}
+
+void mostrar(float A[], int tam)
+{
+   for (int i=0;i<tam;i++)
+    {
+        cout<<"Monto ["<<i<<"]: "<<A[i]<<endl;
+    }
