@@ -1,0 +1,90 @@
+#include <iostream>
+
+
+using namespace std;
+
+void CargarVector(int Vec[], int tam);
+void MostrarVector(int Vec[], int tam);
+void OrdenarVector(int Vec[], int tam);
+void SerieFibonacci(int Vec[], int tam);
+
+int main()
+{
+    int op=0, a=0;
+    int vecA[100];
+    
+    cout<<"Ingrese el tamaño del vector ";
+    cin>>a;
+    
+    do{
+        cout<<"*** Menu para Arreglos ****"<<endl;
+        cout<<"1.- Llenar el vector"<<endl;
+        cout<<"2.- Mostrar el vector"<<endl;
+        cout<<"3.- Ordenar el vector"<<endl;
+        cout<<"4.- Llenar el vector con serie Fibonacci"<<endl;
+        cout<<"5.- Salir"<<endl;
+        cout<<"Elije una opcion ";
+        cin>>op;
+        switch(op){
+        case 1:
+            CargarVector(vecA,a);
+            //cout<<"La suma es: "<< c <<endl;
+            break;
+        case 2:
+            MostrarVector(vecA,a);
+            //cout<<"La resta es: "<< c <<endl;
+            break;
+        case 3:
+            OrdenarVector(vecA,a);
+            //cout<<"La resta es: "<< c <<endl;
+            break;
+        case 4:
+            SerieFibonacci(vecA,a);
+            //cout<<"La resta es: "<< c <<endl;
+            break;
+        }
+    }while(op>=1 && op<=4);
+    //while(op!=4);
+
+    return 0;
+}
+
+void CargarVector(int vec[],int tam ){
+    
+    for(int i=0;i<tam;i++){
+        cout<<"Ingrese el valor de la posicion [" <<i<<"] ";
+        cin>>vec[i];
+    }
+}
+
+void MostrarVector(int vec[],int tam ){
+    
+    for(int i=0;i<tam;i++){
+        cout<<"Vector ["<<i<<"] "<< vec[i]<<endl;
+    }
+}
+
+void OrdenarVector(int vec[],int tam ){
+    int aux=0;
+    for(int i=0;i<tam-1;i++){
+        for(int j=i+1;j<tam;j++){
+            if(vec[i]>vec[j]){
+                aux=vec[i];
+                vec[i]=vec[j];
+                vec[j]=aux;
+            }
+        }
+    }
+}
+    
+void SerieFibonacci(int Vec[], int tam){
+    int fib1=0, fib2=1;
+    Vec[0]=fib1;
+    Vec[1]=fib2;
+    
+    for(int i=2;i<tam;i++){
+        fib2=fib1 + fib2;
+        Vec[i]=fib2;
+        fib1 = fib2 - fib1;
+    }
+}
